@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスク管理アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-tasks"></i> タスク管理アプリ</h1>
+            <p>効率的にタスクを管理しましょう</p>
+        </header>
+
+        <main class="main-content">
+            <div class="task-input-section">
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="新しいタスクを入力してください..." maxlength="100">
+                    <button id="addTaskBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> 追加
+                    </button>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">すべて</button>
+                    <button class="filter-btn" data-filter="pending">未完了</button>
+                    <button class="filter-btn" data-filter="completed">完了済み</button>
+                </div>
+                <div class="task-stats">
+                    <span id="taskCount">0件のタスク</span>
+                </div>
+            </div>
+
+            <div class="task-list-section">
+                <ul id="taskList" class="task-list">
+                    <!-- タスクがここに動的に追加されます -->
+                </ul>
+                <div id="emptyState" class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>まだタスクがありません</p>
+                    <p>上の入力欄から新しいタスクを追加してください</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 タスク管理アプリ. すべての権利を保有.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
