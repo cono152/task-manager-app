@@ -13,6 +13,48 @@ body {
     line-height: 1.6;
 }
 
+/* トップナビゲーション */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    backdrop-filter: blur(8px);
+}
+
+.top-nav .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.top-nav .brand i {
+    color: #ffd700;
+}
+
+.top-nav .nav-links {
+    display: flex;
+    gap: 14px;
+}
+
+.top-nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.top-nav .nav-links a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -27,6 +69,44 @@ body {
     text-align: center;
     margin-bottom: 40px;
     color: white;
+}
+
+.hero .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-actions {
+    margin-top: 8px;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.hero-stat {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+}
+
+.hero-stat .label {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.hero-stat .value {
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
 .header h1 {
