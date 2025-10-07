@@ -19,6 +19,10 @@ class TaskManager {
         this.emptyState = document.getElementById('emptyState');
         this.taskCount = document.getElementById('taskCount');
         this.filterButtons = document.querySelectorAll('.filter-btn');
+        this.heroTotal = document.getElementById('heroTotal');
+        this.heroCompleted = document.getElementById('heroCompleted');
+        this.heroPending = document.getElementById('heroPending');
+        this.scrollToInputBtn = document.getElementById('scrollToInputBtn');
     }
 
     bindEvents() {
@@ -36,6 +40,14 @@ class TaskManager {
                 this.setFilter(e.target.dataset.filter);
             });
         });
+
+        // ヒーローの「タスクを追加」ボタンで入力欄へスクロール
+        if (this.scrollToInputBtn) {
+            this.scrollToInputBtn.addEventListener('click', () => {
+                this.taskInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                this.taskInput.focus();
+            });
+        }
 
         // タスクリストのイベント委譲
         this.taskList.addEventListener('click', (e) => {
@@ -268,6 +280,17 @@ class TaskManager {
         }
         
         this.taskCount.textContent = countText;
+
+        // ヒーロー統計の同期
+        if (this.heroTotal) {
+            this.heroTotal.textContent = String(total);
+        }
+        if (this.heroCompleted) {
+            this.heroCompleted.textContent = String(completed);
+        }
+        if (this.heroPending) {
+            this.heroPending.textContent = String(pending);
+        }
     }
 
     saveTasks() {
@@ -375,7 +398,7 @@ document.head.appendChild(style);
 
 // アプリケーションの初期化
 document.addEventListener('DOMContentLoaded', () => {
-    new TaskManager();
+    window.taskManager = new TaskManager();
 });
 
 // キーボードショートカット
