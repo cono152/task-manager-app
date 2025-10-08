@@ -375,7 +375,19 @@ document.head.appendChild(style);
 
 // アプリケーションの初期化
 document.addEventListener('DOMContentLoaded', () => {
-    new TaskManager();
+    const manager = new TaskManager();
+    window.taskManager = manager;
+
+    // CTA: 入力欄へスムーズスクロール & フォーカス
+    const ctaBtn = document.getElementById('ctaStartBtn');
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+            const input = document.getElementById('taskInput');
+            if (!input) return;
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => input.focus(), 300);
+        });
+    }
 });
 
 // キーボードショートカット
