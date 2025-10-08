@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FlatList, Keyboard, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const STORAGE_KEY = 'tasks:v1';
@@ -87,10 +88,25 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>タスク管理</Text>
-        <Text style={styles.subtitle}>シンプルでパワフル。毎日のタスクをスマートに。</Text>
-      </View>
+      <LinearGradient
+        colors={["#6b7cff", "#8a5bd1"]}
+        start={{ x: 0.1, y: -0.2 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.hero}
+      >
+        <View style={styles.heroContent}>
+          <Text style={styles.heroTitle}>タスク管理</Text>
+          <Text style={styles.heroSubtitle}>毎日のタスクをスマートに整理。シンプルでパワフル。</Text>
+          <View style={styles.heroActions}>
+            <Pressable onPress={() => inputRef.current?.focus()} style={({ pressed }) => [styles.primaryBtnLarge, pressed && styles.pressed]}>
+              <Text style={styles.primaryBtnText}>今すぐ始める</Text>
+            </Pressable>
+            <Pressable onPress={() => inputRef.current?.focus()} style={({ pressed }) => [styles.secondaryBtn, pressed && styles.pressed]}>
+              <Text style={styles.secondaryBtnText}>使い方</Text>
+            </Pressable>
+          </View>
+        </View>
+      </LinearGradient>
 
       <View style={styles.inputRow}>
         <TextInput
@@ -191,6 +207,46 @@ const styles = StyleSheet.create({
     backgroundColor: '#1f2140',
     paddingHorizontal: 16,
     paddingTop: 24,
+  },
+  hero: {
+    borderRadius: 20,
+    paddingVertical: 28,
+    paddingHorizontal: 16,
+  },
+  heroContent: {
+    alignItems: 'center',
+    gap: 8,
+  },
+  heroTitle: {
+    color: '#fff',
+    fontSize: 28,
+    fontWeight: '800',
+  },
+  heroSubtitle: {
+    color: 'rgba(255,255,255,0.95)',
+    marginTop: 6,
+    textAlign: 'center',
+  },
+  heroActions: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 12,
+  },
+  primaryBtnLarge: {
+    backgroundColor: '#2a2d5e',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 12,
+  },
+  secondaryBtn: {
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 12,
+  },
+  secondaryBtnText: {
+    color: '#fff',
+    fontWeight: '700',
   },
   header: {
     alignItems: 'center',
