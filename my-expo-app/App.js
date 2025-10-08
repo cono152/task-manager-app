@@ -95,7 +95,7 @@ export default function App() {
         style={styles.hero}
       >
         <View style={styles.heroContent}>
-          <Text style={styles.heroTitle}>もやもや</Text>
+          <Text style={styles.heroTitle}>TaskFlow</Text>
           <Text style={styles.heroSubtitle}>毎日のタスクをスマートに整理。シンプルでパワフル。</Text>
           <View style={styles.heroActions}>
             <Pressable onPress={() => inputRef.current?.focus()} style={({ pressed }) => [styles.primaryBtnLarge, pressed && styles.pressed]}>
