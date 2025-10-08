@@ -375,7 +375,22 @@ document.head.appendChild(style);
 
 // アプリケーションの初期化
 document.addEventListener('DOMContentLoaded', () => {
-    new TaskManager();
+    const manager = new TaskManager();
+    window.taskManager = manager;
+
+    // ヒーロー / ナビから入力欄へスクロール
+    const addTarget = () => {
+        const input = document.getElementById('taskInput');
+        if (!input) return;
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        input.focus();
+    };
+
+    const heroAddBtn = document.getElementById('heroAddBtn');
+    if (heroAddBtn) heroAddBtn.addEventListener('click', addTarget);
+
+    const scrollToAdd = document.getElementById('scrollToAdd');
+    if (scrollToAdd) scrollToAdd.addEventListener('click', addTarget);
 });
 
 // キーボードショートカット
