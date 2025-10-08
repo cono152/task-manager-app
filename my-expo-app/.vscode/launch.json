@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Expo Web in Chrome",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:19006",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "React Native: Attach to packager",
+      "type": "reactnative",
+      "request": "attach",
+      "port": 8081
+    }
+  ]
+}
