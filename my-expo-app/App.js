@@ -214,6 +214,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     justifyContent: 'center',
     minHeight: 200,
+    alignItems: 'center',
   },
   heroContent: {
     alignItems: 'center',
@@ -234,6 +235,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     marginTop: 12,
+    justifyContent: 'center',
   },
   primaryBtnLarge: {
     backgroundColor: '#2a2d5e',
