@@ -219,12 +219,14 @@ const styles = StyleSheet.create({
   heroContent: {
     alignItems: 'center',
     gap: 8,
+    width: '100%',
   },
   heroTitle: {
     color: '#fff',
     fontSize: 28,
     fontWeight: '800',
     textAlign: 'center',
+    alignSelf: 'center',
   },
   heroSubtitle: {
     color: 'rgba(255,255,255,0.95)',
