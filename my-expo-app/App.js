@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const STORAGE_KEY = 'tasks:v1';
-const HERO_TITLE = 'もやもや';
+import appConfig from './src/config/appConfig.json';
 
 function generateId() {
   return Date.now();
@@ -98,8 +98,8 @@ export default function App() {
         style={styles.hero}
       >
         <View style={styles.heroContent}>
-          <Text style={styles.heroTitle}>{HERO_TITLE}</Text>
-          <Text style={styles.heroSubtitle}>毎日のタスクをスマートに整理。シンプルでパワフル。</Text>
+          <Text style={styles.heroTitle}>{appConfig.heroTitle}</Text>
+          <Text style={styles.heroSubtitle}>{appConfig.heroSubtitle}</Text>
           <View style={styles.heroActions}>
             <Pressable onPress={() => inputRef.current?.focus()} style={({ pressed }) => [styles.primaryBtnLarge, pressed && styles.pressed]}>
               <Text style={styles.primaryBtnText}>今すぐ始める</Text>
