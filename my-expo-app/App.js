@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { FlatList, Keyboard, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, Keyboard, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -87,6 +88,7 @@ export default function App() {
   }, [addTask, text]);
 
   return (
+    <SafeAreaProvider>
     <SafeAreaView style={styles.container}>
       <LinearGradient
         colors={["#6b7cff", "#8a5bd1"]}
@@ -154,6 +156,7 @@ export default function App() {
 
       <StatusBar style="light" />
     </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
