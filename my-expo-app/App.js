@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { FlatList, Keyboard, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const STORAGE_KEY = 'tasks:v1';
+const HERO_TITLE = 'もやもや';
 
 function generateId() {
   return Date.now();
@@ -78,14 +79,14 @@ function useTasks() {
 
 export default function App() {
   const { filtered, filter, setFilter, addTask, toggleTask, deleteTask, editTask, statsText } = useTasks();
-  const [text, setText] = useState('');
+  const [taskInputText, setTaskInputText] = useState('');
   const inputRef = useRef(null);
 
-  const onAdd = useCallback(() => {
-    addTask(text);
-    setText('');
+  const onAddTask = useCallback(() => {
+    addTask(taskInputText);
+    setTaskInputText('');
     inputRef.current?.focus();
-  }, [addTask, text]);
+  }, [addTask, taskInputText]);
 
   return (
     <SafeAreaProvider>
@@ -97,7 +98,7 @@ export default function App() {
         style={styles.hero}
       >
         <View style={styles.heroContent}>
-          <Text style={styles.heroTitle}>もやもや</Text>
+          <Text style={styles.heroTitle}>{HERO_TITLE}</Text>
           <Text style={styles.heroSubtitle}>毎日のタスクをスマートに整理。シンプルでパワフル。</Text>
           <View style={styles.heroActions}>
             <Pressable onPress={() => inputRef.current?.focus()} style={({ pressed }) => [styles.primaryBtnLarge, pressed && styles.pressed]}>
@@ -113,15 +114,15 @@ export default function App() {
       <View style={styles.inputRow}>
         <TextInput
           ref={inputRef}
-          value={text}
-          onChangeText={setText}
+          value={taskInputText}
+          onChangeText={setTaskInputText}
           placeholder="新しいタスクを入力..."
           maxLength={100}
-          onSubmitEditing={onAdd}
+          onSubmitEditing={onAddTask}
           returnKeyType="done"
           style={styles.input}
         />
-        <Pressable onPress={onAdd} style={({ pressed }) => [styles.primaryBtn, pressed && styles.pressed]}>
+        <Pressable onPress={onAddTask} style={({ pressed }) => [styles.primaryBtn, pressed && styles.pressed]}>
           <Text style={styles.primaryBtnText}>追加</Text>
         </Pressable>
       </View>
