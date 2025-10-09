@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Expo: start (tunnel)",
+      "type": "shell",
+      "command": "npx expo start --tunnel",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Expo: start (lan)",
+      "type": "shell",
+      "command": "npx expo start --lan",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Expo: start (web)",
+      "type": "shell",
+      "command": "npm run web",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}
