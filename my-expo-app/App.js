@@ -212,6 +212,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 28,
     paddingHorizontal: 16,
+    justifyContent: 'center',
+    minHeight: 200,
   },
   heroContent: {
     alignItems: 'center',
@@ -221,6 +223,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 28,
     fontWeight: '800',
+    textAlign: 'center',
   },
   heroSubtitle: {
     color: 'rgba(255,255,255,0.95)',
